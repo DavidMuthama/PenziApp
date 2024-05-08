@@ -2,7 +2,7 @@ const db=require('../models')
 const User=db.user
 const values=new Map()
 
-const welcomeUser=async(req,res)=>{
+const welcomeUser=async function(req,res){
     input=(req.body.message)
     if (input=="PENZI"){
         res.status(200).send(`Welcome to our dating service with 6000 potential dating partners!
@@ -18,6 +18,7 @@ const addUser=async (req,res)=>{
     const words = incoming.split(/#/);
     // create template dict
     let info={
+        desc_key:req.body.desc_key,
         name:req.body.name,
         age:req.body.age,
         gender:req.body.gender,
@@ -67,10 +68,10 @@ const updateOneUser=async(req,res)=>{
     let updateUsers=await User.update(new_dict,{
         where:{id:id}
     })
-    res.status(200).send(`You are now registered for dating.
-    To search for a MPENZI, SMS match#age#town to 22141 and meet the
-    person of your dreams.
-    E.g., match#23-25#Kisumu`)
+    res.status(200).send(`This is the last stage of registration.
+    SMS a brief description of yourself to 22141 starting with the word
+    MYSELF.
+    E.g., MYSELF#chocolate, lovely, sexy etc.`)
     console.log(`Updated successfully: output is ${updateUsers}`)
 }
 
@@ -94,7 +95,10 @@ const updateDescription=async(req,res)=>{
         attributes:['name'],
         where:{id:id}
     })
-    res.status(200).send(`Description for user with id =${id} updated`)
+    res.status(200).send(`You are now registered for dating.
+    To search for a MPENZI, SMS match#age#town to 22141 and meet the
+    person of your dreams.
+    E.g., match#23-25#Kisumu`)
     console.log(updateUsers)
 }
 
@@ -193,6 +197,14 @@ const deleteOneUser=async(req,res)=>{
     })
     res.status(200).send(`Destroy Destroy.The user has been destroyed`)
 }
+const penzi =require('./penzi')
+const messages =async (req,res)=>{
+    phone_no=req.body.phone_no
+    message=req.body.message
+    penzi_response=await penzi(phone_no,message)
+    res.send(penzi_response)
+    // console.log(penzi_response)
+}
 module.exports={
     updateOneUser,
     deleteOneUser,
@@ -202,5 +214,6 @@ module.exports={
     addUser,
     updateDescription,
     getUserDescr,
-    getUserByPhoneorName
+    getUserByPhoneorName,
+    messages
 }
