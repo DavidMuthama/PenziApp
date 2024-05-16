@@ -1,0 +1,66 @@
+/* addUser.css */
+
+.MainPage {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    /* margin-top: 10px; */
+    padding: 20px;
+    background-color: aqua;
+}
+
+.Title_area {
+background-color: #f472f7;
+padding: 20px;
+}
+
+.head_title {
+color: #333;
+margin: 0%;
+}
+/* .chat-message{
+    margin-right: 0px;
+} */
+.addUser-form {
+margin-top: 20px;
+}
+
+.Input-area {
+padding: 10px;
+margin: 10px;
+width: 300px;
+border: 1px solid #ccc;
+border-radius: 3px;
+font-size: 16px;
+}
+
+.Submit {
+padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.Submit:hover {
+background-color: #a400b3;
+}
+
+.App-logo {
+width: 30px;
+height: 30px;
+position:inherit;
+}
+/* CSS for Chat Bubbles */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 28%;
+    clear: both;
+}

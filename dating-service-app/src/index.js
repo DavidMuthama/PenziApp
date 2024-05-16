@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Welcome from './welcome';
-import AddUser from './addUser';
+import {Welcome} from './welcome';
+import {AddUser} from './addUser';
+const currentPath = window.location.pathname;
+const pathParts = currentPath.split('/');
 
+let Component;
+if (currentPath === '/') {
+  Component = Welcome;
+} else if (pathParts[1] === 'api' && pathParts[2] === 'user' && pathParts.length === 5) {
+  // alert(pathParts)
+  Component = AddUser;
+} else {
+  // Handle other routes or return an error
+  Component = () => <div>Invalid URL</div>;
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Welcome/>
-    <AddUser/>
+    <Component />
+    {/* <Users/> */}
   </React.StrictMode>
 );
 

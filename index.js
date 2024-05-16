@@ -9,14 +9,13 @@ var corOption={
 }
 var server = require('http').createServer(app);
 portNo=8888
+app.use(cors(corOption))
 var io = require('socket.io')(server, {
   cors: {
     origin: "http://localhost:8888",
     methods: ["GET", "POST","PUT","DELETE"]
   }
 })
-
-app.use(cors(corOption))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use('/api/user',router)

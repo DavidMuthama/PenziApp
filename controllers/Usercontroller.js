@@ -197,11 +197,20 @@ const deleteOneUser=async(req,res)=>{
     })
     res.status(200).send(`Destroy Destroy.The user has been destroyed`)
 }
-const penzi =require('./penzi')
+const penziUserWelcome=require('./penziUserWelcome')
 const messages =async (req,res)=>{
     phone_no=req.body.phone_no
     message=req.body.message
-    penzi_response=await penzi(phone_no,message)
+    penzi_response=await penziUserWelcome(phone_no,message)
+    // res.send(penzi_response)
+    res.send(penzi_response)
+    // console.log(penzi_response)
+}
+const penzi =require('./penzi')
+const messagesUser=async (req,res)=>{
+    phone_noByName=(req.body.name).replace("%2520"," ").replace("%20"," ")
+    message=req.body.message
+    penzi_response=await penzi(phone_noByName,message)
     res.send(penzi_response)
     // console.log(penzi_response)
 }
@@ -215,5 +224,6 @@ module.exports={
     updateDescription,
     getUserDescr,
     getUserByPhoneorName,
+    messagesUser,
     messages
 }
