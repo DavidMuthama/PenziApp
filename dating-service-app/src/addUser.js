@@ -7,14 +7,14 @@ export function AddUser() {
 const [message, setMessage] = useState("");
 const [chatHistory, setHistory] = useState([]);
 const messagesEndRef = useRef(null);
+const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
-// const scrollToBottom = () => {
-//     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-//   };
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatHistory]);
 
-//   useEffect(() => {
-//     scrollToBottom();
-//   }, [chatHistory]);
 let newChatHistory
 let data=[];
 const handleUserInput = async (e) => {
@@ -31,7 +31,7 @@ try {
             text: response.data,
             from: response,
         });
-        alert(response.data);
+        // alert(response.data);
     } 
     
     else if (Array.isArray(response.data)) {
@@ -42,13 +42,15 @@ try {
             from: response,
         });
     });
-    alert(data)
+    // alert(data)
     }
     // Check if the `data` in response is an object
     else if (typeof response.data === "object" && response.data !== null) {
     alert(response.data.message);
     const redirectUrl = `/api/user/${encodeURIComponent(response.data.name)}/messages`;
-    window.location.href = redirectUrl;
+    // code for redirections
+    // window.location.href = redirectUrl;
+    window.open(redirectUrl,'blank')
     alert(response.data.alert);
     }
     else if(typeof response.data==="object"&& response.data===null){
@@ -62,18 +64,29 @@ setHistory(newChatHistory)
 return (
 <div className="MainPage">
     <header className="Title_area">
-        <h1 className="head_title"> PenziApp </h1> <br></br>
-        <p>Connect with your partner today:)<img src={logo} className="App-logo" alt="logo" /></p>
+        <h1 className="head_title"> PenziApp </h1>
+        <p className="Initial">Connect with your partner today:)<img src={logo} className="App-logo" alt="logo" /></p>
     </header>
-    <div className="chat-container">
-        {chatHistory.map((message, index) => (
-            <div key={index} className={`chat-message ${message.from}`}>
-                {message.text}
-            </div>
-        ))
-        }
-        <div ref={messagesEndRef} />
-    </div>
+    <div class="bubbleWrapper">
+		<div class="inlineContainer">
+            <div className="chat-container">
+                {chatHistory.map((message, index) => (
+                <div key={index} className={`chat-message ${message.from}`}>
+                    {message.text}
+                </div>))
+                }
+                <div ref={messagesEndRef} />
+	        </div>
+		</div>
+	</div>
+
+    <div class="bubbleWrapper">
+		<div class="inlineContainer own">
+			<div class="ownBubble own">
+			 {message}
+			</div>
+		</div>
+	</div>
     <form onSubmit={handleUserInput} className="addUser-form">
     <input
         type="text"

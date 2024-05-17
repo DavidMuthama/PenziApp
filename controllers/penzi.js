@@ -152,7 +152,10 @@ penzi = async (profile, msg) => {
 
         const firstTwoEntries = matches.slice(0, 2);
         console.log("First two matches: ", firstTwoEntries);
-        return firstTwoEntries;
+        if(firstTwoEntries.length==0){
+            return `There were no entries found. try another search`
+        }
+        else{return firstTwoEntries;}
     }
     else if(msg=="next"){
         if (indexTracker.currentIndex >= indexTracker.data.length) {

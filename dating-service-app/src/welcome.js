@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 
 export function Welcome() {
@@ -32,7 +32,7 @@ export function Welcome() {
   };
   return (
     <div>
-      <form onSubmit={handleInput}>
+      <form onSubmit={handleInput} className="Myform">
         <input
           type="text"
           value={input}

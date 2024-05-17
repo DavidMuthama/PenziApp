@@ -1,25 +1,57 @@
-/* addUser.css */
+@keyframes background-animation {
+  0% {
+    background-image: url('./img/lovers.jpg');
+  }
+  25% {
+    background-image: url('./img/lovers2.jpg');
+  }
+  50% {
+    background-image: url('./img/lovers3.jpg');
+  }
+  75% {
+    background-image: url('./img/lovers4.jpg');
+  }
+  100% {
+    background-image: url('./img/lovers.jpg');
+  }
+}
+
+@keyframes move-image {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 
 .MainPage {
     text-align: center;
     font-family: Arial, sans-serif;
     /* margin-top: 10px; */
     padding: 20px;
-    background-color: aqua;
+    animation: background-animation 15s ease-in-out infinite;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Myform{
+  text-align: center;
 }
 
 .Title_area {
-background-color: #f472f7;
-padding: 20px;
+/* background-color: #f472f7; */
+padding: 2px;
+opacity: 80%;
+color: chartreuse;
 }
 
 .head_title {
-color: #333;
+color: chartreuse;
 margin: 0%;
+padding: 0%;
+text-align:start;
 }
-/* .chat-message{
-    margin-right: 0px;
-} */
+
 .addUser-form {
 margin-top: 20px;
 }
@@ -46,21 +78,48 @@ cursor: pointer;
 background-color: #a400b3;
 }
 
-.App-logo {
-width: 30px;
-height: 30px;
-position:inherit;
+
+.Initial{
+  animation: move-image 10s linear infinite;
 }
-/* CSS for Chat Bubbles */
-.chat-container {
-    display: flex;
-    flex-direction: column;
+* {
+  font-family: 'Avenir';
+}
+.bubbleWrapper {
+	padding: 10px 10px;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-self:auto;
+  color: #fff;
+  margin: auto;
+}
+.inlineContainer {
+  display: inline-flex;
+  width: 29%;
 }
 
-.chat-message {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 10px;
-    max-width: 28%;
-    clear: both;
+.chat-container {
+	min-width: fit-content;
+	max-width: fit-content;
+	padding: 14px 18px;
+  margin: 6px 8px;
+	background-color: #6C8EA4;
+	border-radius: 16px 16px 16px 0;
+	border: 1px solid #54788e;
+  
+}
+
+.inlineContainer.own {
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 14px 18px;
+    margin: 6px 8px;
+    background-color: #6C8EA4;
+    border-radius: 16px 16px 0px 16px;
+    border: 1px solid #54788e;
+    flex-direction: row-reverse;
+}
+.own {
+	align-self: flex-end;
 }
