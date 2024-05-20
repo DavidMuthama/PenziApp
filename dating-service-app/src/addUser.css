@@ -2,17 +2,20 @@
   0% {
     background-image: url('./img/lovers.jpg');
   }
-  25% {
+  20% {
     background-image: url('./img/lovers2.jpg');
   }
-  50% {
+  40% {
     background-image: url('./img/lovers3.jpg');
   }
-  75% {
+  60% {
     background-image: url('./img/lovers4.jpg');
   }
+  80% {
+    background-image: url('./img/lovers5.jpg');
+  }
   100% {
-    background-image: url('./img/lovers.jpg');
+    background-image: url('./img/lovers6.jpg');
   }
 }
 
@@ -21,28 +24,26 @@
     transform: translateX(-100%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
 }
 
 .MainPage {
     text-align: center;
     font-family: Arial, sans-serif;
-    /* margin-top: 10px; */
-    padding: 20px;
     animation: background-animation 15s ease-in-out infinite;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
 }
 .Myform{
   text-align: center;
 }
 
 .Title_area {
-/* background-color: #f472f7; */
 padding: 2px;
 opacity: 80%;
 color: chartreuse;
+margin-bottom: 200px;
 }
 
 .head_title {
@@ -81,6 +82,7 @@ background-color: #a400b3;
 
 .Initial{
   animation: move-image 10s linear infinite;
+  text-align: right;
 }
 * {
   font-family: 'Avenir';
@@ -92,11 +94,11 @@ background-color: #a400b3;
 	flex-direction: column;
 	align-self:auto;
   color: #fff;
-  margin: auto;
+  margin-bottom:100px;
 }
 .inlineContainer {
   display: inline-flex;
-  width: 29%;
+  /* width: 53%; */
 }
 
 .chat-container {
@@ -113,7 +115,7 @@ background-color: #a400b3;
 .inlineContainer.own {
     min-width: fit-content;
     max-width: fit-content;
-    padding: 14px 18px;
+    /* padding: 14px 18px; */
     margin: 6px 8px;
     background-color: #6C8EA4;
     border-radius: 16px 16px 0px 16px;
