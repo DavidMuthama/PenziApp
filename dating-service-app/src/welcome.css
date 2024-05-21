@@ -37,4 +37,10 @@
     text-align: left;
     text-decoration: wavy;
     padding-top: 50px;
+    color: rgb(243, 232, 14);
+    font-size: large;
+  }
+  .handleInput{
+    color: rgb(102, 243, 14);
+    font-size: larger;
   }
