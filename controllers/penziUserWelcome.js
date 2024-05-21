@@ -56,13 +56,13 @@ penziUserWelcome=async(profile,msg)=>{
             // // console.log(response)
             // return response
             if(findUser.educationlevel===null||findUser.description===null){
-                const redirectUrl = {name:encodeURIComponent(findUser.name),message:`You had created your profile earlier ${findUser.name} but you did not finish updating your details. SMS
+                const redirectUrl = {id:encodeURIComponent(findUser.id),message:`You had created your profile earlier ${findUser.name} but you did not finish updating your details. SMS
             details#levelOfEducation#profession#maritalStatus#religion#ethnicity to
             22141.
             E.g. details#diploma#driver#single#christian#mijikenda`};
             return redirectUrl
         }else{
-            const redirectUrl = {name:encodeURIComponent(findUser.name),message:`Welcome back ${findUser.name}. To search for a MPENZI, SMS match#age#town to 22141 and meet the
+            const redirectUrl = {id:encodeURIComponent(findUser.id),message:`Welcome back ${findUser.name}. To search for a MPENZI, SMS match#age#town to 22141 and meet the
             person of your dreams.
             E.g., match#23-25#Nairobi`}
             return redirectUrl
@@ -71,7 +71,7 @@ penziUserWelcome=async(profile,msg)=>{
         else{
             const new_user = await User.create(new_dict);
             // console.log(new_user);
-            const redirectUrl = {name:encodeURIComponent(new_user.name),message:`Your profile has been created successfully.
+            const redirectUrl = {id:encodeURIComponent(new_user.id),message:`Your profile has been created successfully.
             SMS
             details#levelOfEducation#profession#maritalStatus#religion#ethnicity to
             22141.

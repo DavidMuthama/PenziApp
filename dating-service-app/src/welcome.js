@@ -26,7 +26,8 @@ export function Welcome() {
         // Assuming the object might have keys like 'name', 'age', and 'message'
         // This is just an example, replace it with the actual keys from your response
         newResponseEntries={text:response.data.message}
-        const redirectUrl = `/api/user/${encodeURIComponent(response.data.name)}/messages`;
+        alert(`We will be redirecting you shortly...`)
+        const redirectUrl = `/api/user/${encodeURIComponent(response.data.id)}/messages`;
         window.location.href = redirectUrl;
     }
     } catch (error) {

@@ -39,7 +39,7 @@ penzi = async (profile, msg) => {
         // });
         await User.update(new_dict, {
             where: {
-                name:profile
+                id:profile
             },
         });
         console.log(`Updated successfully details for ${profile}`);
@@ -76,7 +76,7 @@ penzi = async (profile, msg) => {
             attributes: ['name'],
             where: {
                 // phone_no: latestUser.phone_no
-                name:profile
+                id:profile
             }
         })
         response = `You are now registered for dating.
@@ -169,6 +169,7 @@ penzi = async (profile, msg) => {
     else if (isInteger(verified_no)==true) {
             let getUsers = await User.findOne({
                 attributes: [
+                    "id",
                     "name",
                     "age",
                     "gender",
@@ -188,13 +189,13 @@ penzi = async (profile, msg) => {
             details_searcher=await User.findOne({
                 attributes:["name","age","gender","occupation","county","area","phone_no"],
                 where:{
-                    name:profile
+                    id:profile
                 }
             })
 
             response_2=`Hello ${getUsers.name}, a person was interested in you and looked u up. Their name was ${details_searcher.name} and their phone number is ${details_searcher.phone_no}.
              Please record for future use. If u wish to know more about them send YES#phone number`
-             response={message:response_1,alert:response_2,name:getUsers.name,user_searching:details_searcher.name, user_searched:getUsers.name}
+             response={message:response_1,alert:response_2,name:getUsers.name,user_searching:details_searcher.name, user_searched:getUsers.id}
             return response
 
         }

@@ -30,10 +30,10 @@ export function AddUser() {
       try {
         const currentPath = window.location.pathname;
         const pathParts = currentPath.split("/");
-        const name = pathParts[3]; // 'Steve'
-        const response = await axios.post("/api/user/:name/messages", {
+        const id = pathParts[3]; // 'id of Steve'
+        const response = await axios.post("/api/user/:id/messages", {
           message: message,
-          name: name,
+          id: id,
         });
 
         let newChatHistory = [...chatHistory];
@@ -48,7 +48,7 @@ export function AddUser() {
           });
           newResponseEntries = { text: response.data, from: "response" };
         } else if (Array.isArray(response.data)) {
-          let data = response.data.map(user => `${user.name}, aged ${user.age}, ${user.phone_no}\n`);
+          let data = response.data.map(user => `${user.name}, aged ${user.age}, ${user.phone_no}`);
           // let data = [];
           // response.data.forEach((user) => {
           //   data.push(`Name: ${user.name}, Age: ${user.age}, Phone: ${user.phone_no}`);
@@ -76,10 +76,11 @@ export function AddUser() {
             window.open(redirectUrl,'blank')
           }
         } else if (typeof response.data === "object" && response.data === null) {
-          alert("End of entries");
+          newResponseEntries={text:`User appears to not have updated their entries. please try another user`};
+          alert(`User appears to not have updated their entries. please try another user`)
         }
-        // setChatHistory(newChatHistory);
-        setChatHistory([newResponseEntries])
+        setChatHistory(newChatHistory);
+        // setChatHistory([newResponseEntries])
         setUserEntries([{ text: message, from: "own" }]);
         // setRecentEntries(newResponseEntries)
         setMessage("");
