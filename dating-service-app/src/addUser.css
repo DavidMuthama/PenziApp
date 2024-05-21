@@ -1,21 +1,21 @@
 @keyframes background-animation {
   0% {
+    background-image: url('./img/lovers6.jpg');
+  }
+  25% {
     background-image: url('./img/lovers.jpg');
   }
-  20% {
+ 50% {
     background-image: url('./img/lovers2.jpg');
   }
-  40% {
+  75% {
     background-image: url('./img/lovers3.jpg');
   }
-  60% {
-    background-image: url('./img/lovers4.jpg');
-  }
-  80% {
+  /* 100% {
+    background-image: url('./img/green_heart.png');
+  } */
+ 100% {
     background-image: url('./img/lovers5.jpg');
-  }
-  100% {
-    background-image: url('./img/lovers6.jpg');
   }
 }
 
@@ -43,7 +43,7 @@
 padding: 2px;
 opacity: 80%;
 color: chartreuse;
-margin-bottom: 200px;
+/* margin-bottom: 50px; */
 }
 
 .head_title {
@@ -94,22 +94,22 @@ background-color: #a400b3;
 	flex-direction: column;
 	align-self:auto;
   color: #fff;
-  margin-bottom:100px;
+  /* margin-bottom:20px; */
 }
 .inlineContainer {
-  display: inline-flex;
-  /* width: 53%; */
+  display:inline-table;
 }
 
 .chat-container {
-	min-width: fit-content;
-	max-width: fit-content;
-	padding: 14px 18px;
+	max-width:fit-content;
+	padding: 14px;
   margin: 6px 8px;
 	background-color: #6C8EA4;
 	border-radius: 16px 16px 16px 0;
 	border: 1px solid #54788e;
-  
+  /* size:25%; */
+  font-size:medium;
+  white-space: pre-line;
 }
 
 .inlineContainer.own {
@@ -124,4 +124,13 @@ background-color: #a400b3;
 }
 .own {
 	align-self: flex-end;
+}
+.message-time{
+	align-self: flex-end;
+  color:darkorchid;
+  align-items: start;
+}
+.section{
+text-align: left;
+color: chartreuse;
 }

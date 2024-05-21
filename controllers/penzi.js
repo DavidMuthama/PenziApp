@@ -1,5 +1,5 @@
 const values = new Map();
-const { isUndefined, toInteger, isInteger, size, range, toString } = require("lodash");
+const { isUndefined, toInteger, isInteger, size, range, toString ,upperFirst} = require("lodash");
 const db = require("../models");
 const User = db.user;
 const express = require("express")
@@ -12,7 +12,7 @@ penzi = async (profile, msg) => {
     // inputString = inputString.toLowerCase();
     // referenceString = referenceString.toLowerCase();
     // Updating Details
-     if (msg.startsWith("details")) {
+     if (msg.toLowerCase().startsWith("details")) {
         const words = msg.split(/#/);
         let info = {
             details_key: words[0],
@@ -50,7 +50,7 @@ penzi = async (profile, msg) => {
         return response;
     }
     // Updating description
-    else if (msg.startsWith("myself")) {
+    else if (msg.toLowerCase().startsWith("myself")) {
         const words = msg.split(/#/);
         let info = {
             descr_key: words[0],
@@ -87,7 +87,7 @@ penzi = async (profile, msg) => {
         return response
     }
 
-    else if (msg.startsWith("describe")) {
+    else if (msg.toLowerCase().startsWith("describe")) {
         incoming = msg
         const words = incoming.split(/#/);
         new_descr = words[1]
@@ -112,7 +112,7 @@ penzi = async (profile, msg) => {
         // console.log(getUsers.description)
         return response
     }
-    else if (msg.startsWith("yes")){
+    else if (msg.toLowerCase().startsWith("yes")){
         incoming = msg
         const words = incoming.split(/#/);
         new_descr = words[1]
@@ -145,7 +145,7 @@ penzi = async (profile, msg) => {
         // console.log(getUsers.description)
         return response
     }
-    else if (msg.startsWith("match")) {
+    else if (msg.toLowerCase().startsWith("match")) {
         let matches = await findMatch(msg);  // Await the asynchronous function here
         indexTracker.data = matches;
         indexTracker.currentIndex = 2;  // Start after the first two entries
@@ -157,7 +157,7 @@ penzi = async (profile, msg) => {
         }
         else{return firstTwoEntries;}
     }
-    else if(msg=="next"){
+    else if(msg.toLowerCase()=="next"){
         if (indexTracker.currentIndex >= indexTracker.data.length) {
             return `There is no more data to show`;  // No more data to show
         }
@@ -194,7 +194,7 @@ penzi = async (profile, msg) => {
 
             response_2=`Hello ${getUsers.name}, a person was interested in you and looked u up. Their name was ${details_searcher.name} and their phone number is ${details_searcher.phone_no}.
              Please record for future use. If u wish to know more about them send YES#phone number`
-             response={message:response_1,alert:response_2,name:getUsers.name}
+             response={message:response_1,alert:response_2,name:getUsers.name,user_searching:details_searcher.name, user_searched:getUsers.name}
             return response
 
         }
@@ -223,7 +223,7 @@ const findMatch=async function(req){
         attributes: ["name", "age", "phone_no"],
         where: {
             age: range_arr,
-            county: words[2]
+            county: upperFirst(words[2])
         },
         distinct: true
     });

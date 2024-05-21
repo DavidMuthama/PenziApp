@@ -1,5 +1,7 @@
 import React, { useState} from "react";
 import axios from "axios";
+import logo from "./img/gift_heart.png";
+import "./welcome.css";
 
 export function Welcome() {
   const [input, setInput] = useState("");
@@ -31,8 +33,20 @@ export function Welcome() {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleInput} className="Myform">
+    <div className="MainPage">
+      <header className="Title_area">
+        <h1 className="head_title"> PenziApp </h1>
+        <p className="Initial">Connect with your partner today:)<img src={logo} className="App-logo" alt="logo" /></p>
+      </header>
+      <div className="intro">
+      <p>You have searched you havent found? You have looked all over for the one? have no fear. Here at PenziApp
+          We link you to the one you can relate to. Forget about your worries and have fun 
+        </p>
+        <p>We are dedicated to helping you, YES you to find a good partner. So what are you waiting for, hop on and explore
+          ALL that you want and find yourself someone. Don't be alone, don't feel alone.
+        </p>
+      </div>
+      <form onSubmit={handleInput} className="Myformy">
         <input
           type="text"
           value={input}
