@@ -1,0 +1,143 @@
+@keyframes background-animation {
+   0% {
+     background-image: url('./img/lovers.jpg');
+   }
+  25% {
+     background-image: url('./img/lovers2.jpg');
+   }
+   50% {
+     background-image: url('./img/lovers3.jpg');
+   }
+  75% {
+     background-image: url('./img/lovers4.jpg');
+   }
+   100% {
+     background-image: url('./img/lovers5.jpg');
+   }
+ }
+ 
+ @keyframes move-image {
+   0% {
+     transform: translateX(-100%);
+   }
+   100% {
+     transform: translateX(0%);
+   }
+ }
+
+
+.MainPage {
+   text-align: center;
+   font-family: Arial, sans-serif;
+   animation: background-animation 15s ease-in-out infinite;
+   background-repeat: no-repeat;
+   background-size:cover;
+}
+.Title_area {
+   padding: 2px;
+   opacity: 80%;
+   color: chartreuse;
+   /* margin-bottom: 50px; */
+   }
+   
+   .head_title {
+   color: chartreuse;
+   margin: 0%;
+   padding: 0%;
+   text-align:start;
+   }
+   .Initial{
+      animation: move-image 10s linear infinite;
+      text-align: right;
+    }
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    white-space: pre-line;
+ }
+ 
+ .chat-window {
+    flex: 1;
+    padding: 10px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+ }
+ 
+ .chat-message {
+    display: flex;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 100%;
+    word-wrap: break-word;
+ }
+ 
+ .message-content {
+    padding: 8px 12px;
+    border-radius: 18px;
+ }
+ 
+ .outgoing {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+    color: #000;
+ }
+ 
+ .incoming {
+    align-self: flex-start;
+    background-color: #ebebeb;
+    color: #000;
+ }
+ 
+ .chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+ }
+ 
+ .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+ }
+ 
+ .chat-input button {
+    padding: 10px 20px;
+    padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+ }
+ 
+ .chat-input button:hover {
+   background-color: #a400b3;
+}
+ .images{
+   height: 4vmin;
+   pointer-events: none;
+ }
+ .App-logo {
+   height: 4vmin;
+   pointer-events: none;
+ }
+
+ .message-time{
+	align-self: flex-end;
+  color:darkorchid;
+  align-items: start;
+}
+.section{
+text-align: left;
+color: rgb(243, 232, 14);
+}

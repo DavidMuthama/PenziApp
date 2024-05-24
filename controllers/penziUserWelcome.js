@@ -5,8 +5,8 @@ const values=new Map()
 penziUserWelcome=async(profile,msg)=>{
     if (msg.toLowerCase().startsWith("penzi")) {
         response = `Welcome to our dating service with 6000 potential dating partners!
-        To register SMS start#name#age#gender#county#town to 22141
-         E.g., start#John Doe#26#Male#Nakuru#Naivasha`;
+        To register SMS start#name#age#gender#area/town#phone-number#county to 22141
+         E.g., start#John Doe#26#Male#Nakuru#07***#Naivasha`;
         return response;
     }
     // Adding User

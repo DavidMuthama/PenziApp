@@ -208,9 +208,10 @@ const messages =async (req,res)=>{
 }
 const penzi =require('./penzi')
 const messagesUser=async (req,res)=>{
-    phone_noByName=(req.body.id).replace("%2520"," ").replace("%20"," ")
+    phone_noById=(req.body.id)
+    // .replace("%2520"," ").replace("%20"," ")=> to be added if looking with Name/string
     message=req.body.message
-    penzi_response=await penzi(phone_noByName,message)
+    penzi_response=await penzi(phone_noById,message)
     res.send(penzi_response)
     // console.log(penzi_response)
 }

@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./addUser.css";
 import logo from "./img/gift_heart.png";
+import images from "./img/images"
+const {man_raising,woman_raising,telescope,scroll,mag,eye_in_speech}=images
+
 export function AddUser() {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
@@ -76,7 +79,7 @@ export function AddUser() {
             window.open(redirectUrl,'blank')
           }
         } else if (typeof response.data === "object" && response.data === null) {
-          newResponseEntries={text:`User appears to not have updated their entries. please try another user`};
+          newResponseEntries={text:`User appears to not have updated their entries. please try another user`,from:"response"};
           alert(`User appears to not have updated their entries. please try another user`)
         }
         setChatHistory(newChatHistory);
@@ -101,11 +104,11 @@ export function AddUser() {
       <div className="section">
         <p>We have a couple of instructions for you. Very simple like abc:
           <ul className="sub_section">
-          <li><p>details#educationlevel#religion#maritalstatus
-            #occupation if u want to update your details. Let others see ur success</p></li>
-          <li><p>describe#phone_number if u want to get the description of a match.</p></li>
-          <li><p>match#20-30#County if u want to search within a given county. And yes all are a must.</p></li>
-          <li><p>myself#things about you. e.g., hobbies and interests if u want to update your description. Pitch yourself</p></li>
+          <p><img src={scroll} className="images"/>details#educationlevel#religion#maritalstatus
+            #occupation if u want to update your details. Let others see ur success</p>
+          <p><img src={eye_in_speech} className="images"/>describe#phone_number if u want to get the description of a match.</p>
+          <p><img src={mag} className="images"/>match#20-30#County if u want to search within a given county. And yes all are a must.<img src={telescope} className="images"/></p>
+          <p><img src={man_raising} className="images"/>myself#things about you. e.g., hobbies and interests if u want to update your description. Pitch yourself<img src={woman_raising} className="images"/></p>
           </ul>
         </p>
       </div>

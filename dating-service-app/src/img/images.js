@@ -1,7 +1,10 @@
 const IMAGES = {
-    gift_heart: require('./gift_heart.png').default,
-    green_heart: require('./green_heart.png').default,
-    yellow_heart: require('./yellow_heart.png').default
+    eye_in_speech: require('./eye-in-speech-bubble.png'),
+    mag: require('./mag.png'),
+    telescope: require('./telescope.png'),
+    scroll: require('./scroll.png'),
+    man_raising: require('./man-raising-hand.png'),
+    woman_raising: require('./woman-raising-hand.png')
   }
   
-  export default IMAGES
+  module.exports= IMAGES
